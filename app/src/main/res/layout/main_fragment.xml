@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey"
-    android:id="@+id/main_fragment"
     tools:context=".MainActivity">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <EditText
         android:id="@+id/search_edit_text"
         android:layout_width="0dp"
@@ -27,9 +30,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@id/edit_text"
-        tools:ignore="NotSibling" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_button"
@@ -38,5 +39,6 @@
         android:layout_margin="20dp"
         android:background="@drawable/fbutton"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

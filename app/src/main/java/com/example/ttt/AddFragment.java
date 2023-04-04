@@ -23,6 +23,7 @@ import java.io.IOException;
 public class AddFragment extends Fragment {
     private static final int PICK_IMAGE_REQUEST = 1;
     private ImageView imageView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,11 +35,9 @@ public class AddFragment extends Fragment {
             String searchText = bundle.getString("searchText");
             EditText editText = view.findViewById(R.id.edit_text);
             editText.setText(searchText);
+            Button button = view.findViewById(R.id.button);
+            button.setText("Edit");
         }
-
-        Button button = view.findViewById(R.id.button);
-        button.setText("Edit");
-
         return view;
     }
 
@@ -62,7 +61,7 @@ public class AddFragment extends Fragment {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             Uri uri = data.getData();
             try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(),uri);
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(requireActivity().getContentResolver(), uri);
                 ImageView imageView1 = requireView().findViewById(R.id.image_view);
                 imageView1.setImageBitmap(bitmap);
             } catch (IOException e) {

@@ -9,10 +9,14 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import java.text.BreakIterator;
+import java.util.ArrayList;
 
 public class MainFragment extends Fragment {
     private Button sortButton;
@@ -27,7 +31,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AddFragment addFragment = new AddFragment();
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.main_fragment, addFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
@@ -39,7 +43,7 @@ public class MainFragment extends Fragment {
             public void onClick(View view) {
                 String editText = getSearchText();
                 AddFragment addFragment = AddFragment.newInstance(editText);
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.main_fragment, addFragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
